@@ -1,4 +1,4 @@
-
+// check remain length && change color
 $(document).ready(function(){
   $('textarea').keyup(function(){
     var inputLength = $(this).val().length;
@@ -11,15 +11,3 @@ $(document).ready(function(){
     }
   });
 });
-
-// $(function(){
-//   $('.container .new-tweet textarea').keyup(function(){
-//     const inputLength = $(this).val().length;
-//     const $counter = $('.new-tweet .counter').text(140 - inputLength);
-//     if(inputLength <= 140) {
-//       $counter.css('color', 'black');
-//     } else {
-//       $counter.css('color', 'red');
-//     }
-//   });
-// });

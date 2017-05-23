@@ -1,10 +1,5 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
-// Test / driver code (temporary). Eventually will get this from the server.
+//function start
 $(function() {
   var data = [
   {
@@ -52,6 +47,7 @@ $(function() {
       "created_at": 1461113796368
     }
     ];
+
     function createTweetElement(tweet) {
       const { name, handle } = tweet.user;
       const html = `
@@ -73,11 +69,7 @@ $(function() {
       `;
       return html;
     }
-
-
-
-
-
+    // hide tweet bar and button click function
     $(".new-tweet").hide();
     $("button").click(function(){
       $(".new-tweet").animate({
@@ -85,18 +77,15 @@ $(function() {
       });
       $("textarea").focus()
     });
-
-
-
-
+    //call the create function by using foreach
     function renderTweets(tweets) {
       var $tweetContainer = $('#tweets');
       $tweetContainer.empty();
       tweets.forEach(function(tweet) {
         $tweetContainer.prepend(createTweetElement(tweet));
-
       });
     }
+    //type get
     function loadTweets() {
       $.ajax({
         url: '/tweets',
@@ -107,11 +96,9 @@ $(function() {
         }
       });
     }
-
     loadTweets();
-
+    // type post
     function createNewTweet(data) {
-
       $.ajax({
         url: '/tweets',
         type: 'POST',
@@ -119,6 +106,7 @@ $(function() {
         success: loadTweets
       });
     }
+    //Letter length
     $('form').submit(function(evt) {
       evt.preventDefault();
       var text = $('textarea').val();
@@ -132,9 +120,6 @@ $(function() {
         $('textarea').val('');
       }
     });
-
-
-
   });
 
 
